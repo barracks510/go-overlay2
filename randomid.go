@@ -25,8 +25,6 @@ import (
 	"os"
 	"syscall"
 	"time"
-
-	"github.com/Sirupsen/logrus"
 )
 
 // generateID creates a new random string identifier with the given length
@@ -61,7 +59,6 @@ func generateID(l int) string {
 			if retryOnError(err) && retries < maxretries {
 				count += n
 				retries++
-				logrus.Errorf("error generating version 4 uuid, retrying: %v", err)
 				continue
 			}
 
